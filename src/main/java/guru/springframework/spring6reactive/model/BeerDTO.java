@@ -1,5 +1,7 @@
 package guru.springframework.spring6reactive.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +20,12 @@ import java.time.LocalDateTime;
 public class BeerDTO {
 
     private Integer id;
+
+    @NotBlank
+    @Size(min = 3, max = 100)
     private String beerName;
+
+    @NotBlank
     private String beerStyle;
     private String upc;
     private Integer quantityOnHand;
